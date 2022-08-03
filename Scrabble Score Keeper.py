@@ -50,7 +50,11 @@ def take_a_turn():
 
     player_name = (input('please type the players name and hit enter: ')).title()
     if player_name == 'xxx'.title():
-        command = input('To check the score enter S, To take a turn enter T, To view the word list enter W, To End game enter E:  ')
+        command = input('''
+        To check the score enter S,
+        To take a turn enter T,
+        To view the word list enter W,
+        To End game enter E:  ''')
         game(command)
     player_word = input('please type the players word as it appears on the board and hit enter: ').upper()
     if current_game.get(player_name) == None:
@@ -71,28 +75,39 @@ def take_a_turn():
 
 
 def game(command):
+    command.upper()
     while True:
-        if command == 'S':
+        if command.upper() == 'S':
             scores_check()
             command = 'T'
-        elif command == 'T':
+        elif command.upper() == 'T':
             take_a_turn()
-        elif command == 'W':
+        elif command.upper() == 'W':
             print(current_game)
             take_a_turn()
-        elif command == 'E':
+        elif command.upper() == 'E':
             exit()
         else:
-            print(" That is not a valid entry.To start game enter S, To take a turn enter T, To End game enter E ")
-            command = input('To check the score enter S, To take a turn enter T, To view the word list enter W, To End game enter E:  ')
+            print(''' 
+            HEY-That is not a valid entry!
+            To start game enter S,
+            To take a turn enter T,
+            To End game enter E 
+            ''')
+            command = input('Try again here:  ')
 
 
 current_game = {}
 #current_game ={'Adison': ['HOT'], 'Chris': ['HOT'], 'Fayden': ['NOT'], 'Willow ': ['YES']}
 current_scores = {}
-print("Hello, Welcome to the scrabble score keeper. This application will keep track of the scores of up to 4 players,")
-print("and also a list of thier words. If you need to exit the turn takings at anytime ")
-print("simply enter 'xxx' in for the name when prompted.")
+print('''
+    Hello, Welcome to the scrabble score keeper!
+ 
+ This application will keep track of the scores of up to 4 players,
+ and also a list of their words. If you need to exit taking turns
+ simply enter 'xxx' in for the name when prompted.
+ ''')
+
 command = input('To check the score enter S, To take a turn enter T, To view the word list enter W, To End game enter E:  ')
 game(command)
 
