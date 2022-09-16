@@ -84,7 +84,7 @@ def game(command):
             take_a_turn()
         elif command.upper() == 'W':
             print(current_game)
-            take_a_turn()
+            command = 'T'
         elif command.upper() == 'E':
             exit()
         else:
