@@ -1,3 +1,4 @@
+import time
 letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V",
            "W", "X", "Y", "Z"]
 points = [1, 3, 3, 2, 1, 4, 2, 4, 1, 8, 5, 1, 3, 4, 1, 3, 10, 1, 1, 1, 1, 4, 4, 8, 4, 10]
@@ -75,7 +76,7 @@ def take_a_turn():
 
 
 def game(command):
-    command.upper()
+    #command.upper()
     while True:
         if command.upper() == 'S':
             scores_check()
@@ -86,6 +87,10 @@ def game(command):
             print(current_game)
             command = 'T'
         elif command.upper() == 'E':
+            print('You are exiting the game, information is not saved.')
+            time.sleep(1)
+            print('Good Bye!')
+            time.sleep(4)
             exit()
         else:
             print(''' 
